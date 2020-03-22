@@ -1,0 +1,25 @@
+schema_version: 0.0.1
+fields:
+  schema_version:
+    type: string
+    description: Identifies version of MLSpec to use
+    required: true
+    validation_type: regex
+    validation_code: /^((([0-9]+)\.([0-9]+)\.([0-9]+)(?:-([0-9a-zA-Z-]+(?:\.[0-9a-zA-Z-]+)*))?)(?:\+([0-9a-zA-Z-]+(?:\.[0-9a-zA-Z-]+)*))?)$/gm
+  run_id: 
+    type: string
+    description: Unique identifier for the execution of the entire workflow (designed to tie all steps together)
+    required: true
+    validation_type: regex
+    validation_code: /^[0-9a-f]{8}-[0-9a-f]{4}-[0-5][0-9a-f]{3}-[089ab][0-9a-f]{3}-[0-9a-f]{12}$/i
+  step_id:
+    type: string
+    description: Unique identifier for the execution of a step
+    required: true
+    validation_type: regex
+    validation_code: /^[0-9a-f]{8}-[0-9a-f]{4}-[0-5][0-9a-f]{3}-[089ab][0-9a-f]{3}-[0-9a-f]{12}$/i
+  run_date:
+    type: datetime
+    description: Execution datetime of a step in UTC
+    required: true
+    validation_type: datetime
